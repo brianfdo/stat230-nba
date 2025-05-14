@@ -1,6 +1,6 @@
 library(corrplot)
 
-
+#loading data, separating into box score vs advanced stats
 data=read.csv("final_2024_player.csv")
 
 data=data[, !(names(data) %in% c("Salary", "Guaranteed", "Next_Year_Guaranteed", "Awards"))]
@@ -20,6 +20,7 @@ num_box_score_vars=c("Age", "G", "MP_x", "PTS", "TRB", "AST", "STL", "BLK", "TOV
 
 advanced_vars=c("Age", "PER", "TS.", "eFG.", "VORP", "WS", "BPM", "OBPM", "DBPM", "USG.", "FTr", "accolade", "ContractYear")
 
+#heatmaps for checking multicolinearity
 
 cor_adv=cor(data[advanced_vars], use = "complete.obs")
 
